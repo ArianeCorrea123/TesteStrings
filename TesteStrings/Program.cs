@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Linq;
 
 namespace ListaLinguagem_1
@@ -29,7 +30,9 @@ namespace ListaLinguagem_1
             Console.WriteLine("Exercicio 16 - StartsWith");          resp = 16;
             Console.WriteLine("Exercicio 17 - ToLower");             resp = 17;
             Console.WriteLine("Exercicio 18 - ToUpper");             resp = 18;
-            Console.WriteLine("Exercicio 19 - ToString\n");          resp = 19;
+            Console.WriteLine("Exercicio 19 - ToString");            resp = 19;
+            Console.WriteLine("Exercicio 20 - Format");              resp = 20;
+            Console.WriteLine("Exercicio 21 - IsNullOrEmpty \n");    resp = 21;
 
             resp = int.Parse(Console.ReadLine());
 
@@ -329,7 +332,41 @@ namespace ListaLinguagem_1
             Console.ReadLine();
 
         }
-       
+
+        static void Exe20()
+        {
+            //Format
+            //Converte o valor de objetos em cadeias de caracteres com
+            //base nos formatos especificados e os insere em outra cadeia de caracteres.
+            string s = String.Format("Hoje é {0:d} as {0:t}", DateTime.Now);
+            Console.WriteLine(s);
+            Console.ReadLine();
+
+        }
+
+        static void Exe21()
+        {
+            //string.IsNullOrEmpty
+            //Indica se a cadeia de caracteres especificada é null ou uma cadeia de caracteres vazia ("").
+            string s1 = "abcd";
+            string s2 = "";
+            string s3 = null;
+
+            Console.WriteLine("String s1 {0}.", Test(s1));
+            Console.WriteLine("String s2 {0}.", Test(s2));
+            Console.WriteLine("String s3 {0}.", Test(s3));
+
+            String Test(string s)
+            {
+                if (String.IsNullOrEmpty(s))
+                    return "É nullo ou vazia";
+                else
+                    return String.Format("(\"{0}\") não é nulo nem vazio", s);
+            }
+
+            Console.ReadLine();
+
+        }
         static void Main(string[] args)
         {
 
@@ -414,6 +451,14 @@ namespace ListaLinguagem_1
 
                     case 19:
                         Exe19();
+                        break;
+
+                    case 20:
+                        Exe20();
+                        break;
+
+                    case 21:
+                        Exe21();
                         break;
                 }
             }
